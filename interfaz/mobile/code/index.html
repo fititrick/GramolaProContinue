@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GRAMOLA PROJECT</title>
+	<meta property="og:title" content="GRAMOLA PROJECT -share your music lists" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://www.gramolapro.com/" />
+	<meta property="og:image" content="http://www.gramolapro.com/images/Gramola.png"/>
+	<meta name="og:title" content="GRAMOLA PROJECT -share your music lists" />
+	<meta name="og:url" content="www.gramolapro.com" />
+	<meta name="og:description" content="Number 1 Service Sharing Music Around the World">
+	<meta name="keywords" content="music, society, youth, groups, genres,artist,new trends" />
+	<meta name="origen" content="Spain" />
+	<meta name="author" content="www.gramolapro.com" />
+	<meta name="DC.Creator" content="www.gramolapro.com" />
+	<meta name="organization" content="www.gramolapro.com" />
+	<meta name="subject" content="music, list, lists" />
+	<meta name="Classification" content="World, Español, Regional, Europa, España" />
+	<meta name="DC.Language" scheme="RFC1766" content="English" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta name="lang" content="en" />
+	<meta name="Locality" content="Burgos, España" />
+	<meta http-equiv="refresh" content="900" />
+	<meta name="distribution" content="global" />
+	<meta name="resource-type" content="document" />
+	<link rel="shortcut icon" href="http://www.gramolapro.com/images/favicon.ico">
+     
+  <link rel="stylesheet" href="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+  
+  <!-- jQuery and jQuery Mobile -->
+  <script src="https://d10ajoocuyu32n.cloudfront.net/jquery-1.9.1.min.js"></script>
+  <script src="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <script src="login.js"></script>
+  <script languaje="javascript">
+  
+  	var start;
+			var idListaCompartida;
+			function preloadFunc() {
+				if (leerGET() != null) {
+					start = true;
+				} else {
+					start = false;
+				}
+			}
+
+			function leerGET() {
+				var cadGET = location.search.substr(1, location.search.length);
+				var aux = cadGET.split("=");
+				idListaCompartida = aux[1];
+				return aux[1];
+			}
+
+
+			window.onpaint = preloadFunc();
+
+			function copia_portapapeles() {
+				document.f1.campo1.select();
+			}
+
+			function copia_portapapeles2() {
+				document.f2.campo1.select();
+			}
+  
+  
+  
+  
+	 function borrarLink(name){
+	    	//alert("borrar");
+	    	if (confirm('Do you want remove this song?')){
+	    		
+						var param= 'idLinkBorrar=' + name;
+						//alert(param);
+						
+						$.ajax({        
+				             url:'deleteLink.php',        
+				             type:'post',                 
+				             dataType:'html',  
+				             data:param,          
+				             cache: false,            
+				             success: function (response) {
+				             	//alert(response);
+									if (response==true)
+									{
+										 alert('The song has been deleted');
+										muestraLinkDel();
+									}				   
+									else
+									{
+										alert('The song hasn´t been deleted');
+			
+									}
+							 }     
+				        }); 
+					}
+			
+	    }
+	    
+	    function  muestraLinkDel(){
+	    	$.post("listsDelLinks.php",{ },function(respuesta){
+	                					
+							var listsLinks = $('#linksDel');
+							//alert(lists);
+							listsLinks.html(respuesta);
+							listsLinks.find('div[data-role=collapsible]').collapsible({theme:'a',refresh:true});						
+							
+							var elementsArray = document.getElementsByClassName("listaDelLinks");
+							var ides=new Array();
+							var x;
+							for( x=0;x<elementsArray.length;x++){
+								ides[x]=elementsArray[x].id;
+						
+							var idesTxt=ides.join();
+							
+									idList='idList=' + ides[x];
+							
+									$.ajax({
+										type:'POST', 
+										url: 'linksDel.php', 
+										data:idList,
+										success: function(response){
+										
+											var arrayLinks=response.split("*");
+											var idListas=arrayLinks[0];
+											//alert(arrayLinks[0]);
+											for(var z=0;z<arrayLinks.length;z++){
+												arrayLinks[z]=arrayLinks[z+1];
+											}
+											var arrayLinks3=arrayLinks.join(" ");
+							
+											var ul = document.getElementsByClassName('listaDelLinks');
+											
+											for(var h=0;h<ul.length;h++){
+										
+											if((ul[h].id-idListas)==0){
+												$(ul[h]).append(arrayLinks3);
+												var vector=document.getElementsByClassName('delink');
+												//alert(vector[0].className); 
+											for(var d=0;d<vector.length;d++){  
+												//alert(vector[d].className);
+																			
+											}
+												
+												listsLinks.find(ul[h]).listview({theme:'b',refresh:true});
+																						
+											}
+											}
+																		           
+										}								
+									});							
+								}
+		
+							});
+	    }
+	    
+</script>
+
+
+</head>
+<body>
+    <section id="login" data-role="page">
+        <header data-role="header">
+            <h1>GRAMOLA PROJECT</h1>
+        </header>
+        <article data-role="content" data-theme="e">
+        	 <div style=" text-align:center" id="iconGramola" class="IconGramola">
+            <img id="iconGramola" style="width: 38%; height: 25%" src="../images/mono100.png">
+       		 </div>
+            <form id="form_login">
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="txtuser">Usuario:</label>
+                    <input type="text" name="txtuser" id="txtuser" value="" placeholder="Name" />
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="txtpassword">Contraseña:</label>
+                    <input type="password" name="txtpassword" id="txtpassword" value="" placeholder="Password" />
+                </div>
+                <input type="button" value="Login" id="btnLogin">
+            </form>
+             <!--<div id="errorMsg" style="background-color:red;color: #FFFFFF;">Usuario o Contraseña no valida</div>-->
+        </article>
+       
+        <article data-role="footer" data-theme="a">
+        	<div data-role="controlgroup">
+       	 <a href="#Register" data-role="button" data-rel="dialog" >Register</a>
+       	 	</div>
+		</article>
+        
+    </section>
+    
+    
+    <!-- Aqui nuestro dialog con el mensaje de error  -->
+    <section id="pageError" data-role="dialog">
+        <header data-role="header">
+            <h1>Error</h1>
+        </header>
+        <article data-role="content">
+            <p>Nick or password not valid</p>
+            <a href="#" data-role="button"  data-rel="back">Aceptar</a>
+        </article>
+    </section>
+    
+    <section id="pageErNewList" data-role="dialog">
+        <header data-role="header">
+            <h1>Error</h1>
+        </header>
+        <article data-role="content">
+            <p>Not possible with this name, try another one</p>
+            <a href="#" data-role="button"  data-rel="back">Understood</a>
+        </article>
+    </section>
+    
+    <section id="Register" data-role="page">
+        <header data-role="header" >
+            <h1>Register</h1>
+           
+        </header>
+        <article data-role="content" data-theme="e">
+        	<p align="center">Write here your data</p>
+            <form id="form_Register">
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="text" name="userReg" id="userReg" value="" placeholder="Your Nick" />
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="password" name="passReg" id="passReg" value="" placeholder="Password" />
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="password" name="passRegConf" id="passRegConf" value="" placeholder="Confirm your Password" />
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="text" name="email" id="email" value="" placeholder="E-mail" />
+                </div>
+                <input type="button" value="Create Account" id="btnReg" data-theme="a">
+            </form>
+    </section>
+    
+          
+    
+    <section id="home" data-role="page">
+        <header data-role="header" data-position="fixed" data-id="header">
+			<div style="text-align: center;"><img src="../images/mono24.png" alt="Smiley face" align="center">GRAMOLA PROJECT</p></div>
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" id="btnLists" class="ui-btn-active">Your Lists</a></li>
+                    <li><a href="#shareLink" id="btnshare" data-role="button" data-rel="dialog">Share</a></li>
+                    <li><a href="#Profile" id="btnProfile" data-role="button">Profile</a></li>
+                    
+               </ul>
+            </div>
+             <div data-role="navbar" id="LogInShare">
+                
+            </div>
+        </header>
+        
+        
+        <div id="contenido"  data-role="content" data-theme="e">      	
+            <div   data-role="collapsible-set" >
+		            
+		            <div id="lists">
+		            	
+		            </div>
+		            
+		              	
+		    </div>
+            
+                        
+        </div>
+        
+        
+        <article data-role="footer" data-position="fixed">
+        	<div data-role="navbar">
+				<ul>
+					<li><a href="#newList" data-role="button" id="newListButton" data-theme="e" data-rel="dialog" data-icon="plus">New List</a></li>
+					<li><a href="#newLink" data-role="button" id="newLinkButton" data-theme="e" data-rel="dialog" data-icon="plus">New Link</a></li>
+					<li><a href="#deleteList" data-role="button" id="deleteListButton" data-theme="a" data-icon="delete" data-rel="dialog"> List</a></li>
+					<li><a href="#deleteLink" data-role="button" id="deleteLinkButton" data-theme="a"  data-icon="delete"> Link</a></li>
+				</ul>
+			</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#SaveSharedList" data-role="button" id="SaveSharedList"  data-theme="e" data-rel="dialog" data-icon="plus">New List</a></li>
+				</ul>
+			</div>
+        	
+        </article>
+        
+    </section>
+    
+    <section id="SaveSharedList" data-role="page">
+        <header data-role="header" >
+            <h1>Save the List</h1>
+           
+        </header>
+        <article data-role="content" data-theme="e">
+        	<p align="center">Write here the name of the list</p>
+            <form id="form_SaveSharedList">
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="text" name="nameList" id="SaveSharedList" value="" placeholder="Name" />
+                </div>
+                
+                <input type="button" value="Save List" id="btnSaveSharedList" data-theme="a">
+            </form>
+        </article>
+    </section>
+    
+    <section id="sharePage" data-role="page">
+         <header data-role="header" data-position="fixed" data-id="header">
+		 <div style="text-align: center;"><img src="../images/mono24.png" style="margin-right: 10px; float: left;" /><h1>GRAMOLA1111</h1></div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a  id="btnListsShared" class="ui-btn-active">Your Lists</a></li>
+                    <li><a href="#shareLink" id="btnshare" data-role="button" data-rel="dialog">Share</a></li>
+                    <li><a  id="btnProfileShared" data-theme="c" data-role="button">Profile</a></li>
+                    
+               </ul>
+            </div>
+        </header>
+        
+        <div id="contenidoShare"  data-role="content" data-theme="e">      	
+            <div   data-role="collapsible-set" >
+		            
+		            <div id="listsShare">
+		            	
+		            </div>
+		            
+		              	
+		    </div>
+            
+                        
+        </div>
+        
+        <article data-role="footer" data-theme="a">
+        	<div data-role="navbar">
+				<ul>
+					<li><a  data-role="button"  data-theme="c" data-rel="dialog" data-icon="plus">New List</a></li>
+					<li><a  data-role="button"  data-theme="c" data-rel="dialog" data-icon="plus">New Link</a></li>
+					<li><a  data-role="button"  data-theme="c" data-icon="delete" data-rel="dialog"> List</a></li>
+					<li><a  data-role="button"  data-theme="c"  data-icon="delete"> Link</a></li>
+				</ul>
+			</div>
+        	
+    </section>
+    
+     <section id="newList" data-role="page">
+        <header data-role="header" >
+            <h1>Create a List</h1>
+           
+        </header>
+        <article data-role="content" data-theme="e">
+        	<p align="center">Write here the name of your list</p>
+            <form id="form_NewList">
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="text" name="nameList" id="nameList" value="" placeholder="Name" />
+                </div>
+                
+                <input type="button" value="Create List" id="btnNewList" data-theme="a">
+            </form>
+        </article>
+    </section>
+    
+    <section id="newLink" data-role="page">
+        <header data-role="header" >
+            <h1>Insert a new link</h1>
+           
+        </header>
+        <article data-role="content" data-theme="e">
+        	<form name="frpanel" id="divNewLink" method="post" >
+        								<div data-role="fieldcontain" id="linkLists">
+        									<label for="select-choice-2" style="font-size: 13" >Select List</label>
+											<select data-theme="b" name="select-choice-2" id="select-choice-2"  >
+												<option  value=""></option>
+											</select>
+        								</div>
+        		
+										<div data-role="fieldcontain" >
+											<label for="url">Link:</label>
+											<input type="url" name="urlLink" id="urlLink" value="" />
+										</div>
+
+										<div data-role="fieldcontain" >
+											<label for="select-choice-1" style="font-size: 13" >Select Provider</label>
+											<select data-theme="b" name="select-choice-1" id="select-choice-1">
+												<option  value="youtube">Youtube</option>
+												<option value="spotify">Spotify</option>
+												<option value="mp3">MP3</option>
+												<option value="goear">Goear</option>
+											</select>
+										</div>
+
+										<div data-role="fieldcontain">
+											<label for="number-pattern" style="font-size: 13">List Position</label>
+											<input type="number" min="0" name="position" pattern="[0-9]*" id="number-pattern" value="" placeholder="Pattern attribute [0-9]* for a numeric keypad" />
+										</div>
+
+										<div data-role="fieldcontain">
+											<label for="text">Singer or Group name</label>
+											<input type="text" name="singer" id="singerLink" value="" />
+										</div>
+										<div data-role="fieldcontain">
+											<label for="text">Song Name</label>
+											<input type="text" name="songName" id="songNameLink" value="" />
+										</div>
+
+									</form>
+                
+                
+                <input type="button" value="Insert your link" id="btnNewLink" data-theme="a">
+            </form>
+        </article>
+    </section>
+    
+    <section id="deleteList" data-role="page">
+        <header data-role="header" >
+            <h1>Delete a List</h1>
+           
+        </header>
+        <article data-role="content" data-theme="a">
+        	
+            <form id="form_DeleteList">
+               <div data-role="fieldcontain" id="deleteListsDiv">
+        		<label for="select-choice-3" style="font-size: 13" >Delete List</label>
+				<select data-theme="b" name="select-choice-3" id="select-choice-3"  >
+					<option  value=""></option>
+				</select>
+        		</div> 
+                
+                <input type="button" value="Delete List" id="btnDeleteList" data-theme="a">
+            </form>
+        </article>
+    </section>
+    
+    <section id="deleteLink" data-role="page">
+       
+           <header data-role="header" data-position="fixed" data-id="header">
+            <h1>Delete links</h1>
+            
+        </header>
+        
+        
+        <div id="deleteLinkDiv"  data-role="content" data-theme="e">      	
+            <div   data-role="collapsible-set" >
+		            
+		            <div id="linksDel">
+		            	
+		            </div>
+		            
+		              	
+		    </div>
+            
+                        
+        </div>
+        
+        
+        <article data-role="footer" data-position="fixed">
+        	 <div data-role="controlgroup">
+            <a  data-role="button" id="btngoBack" align="center" data-theme="e" >Go back</a>
+           </div>       	
+        </article> 
+    </section>
+    
+
+      <section id="shareLink" data-role="page">
+         <header data-role="header" >
+            <h1>Share your link</h1>
+           
+        </header>
+        <article data-role="content" data-theme="a">
+        	<form id="form_shareLink">
+        		<div data-role="fieldcontain" id="shareLink">
+        			<label for="select-choice-share" style="font-size: 13" >Select List</label>
+					<select data-theme="b" name="select-choice-share" id="select-choice-share"  >
+						<option class="shareListS" value=""></option>
+					</select>
+        		</div>
+        	</form>
+        		
+        		<button id="b_facebook" data-theme="b">Facebook</button>
+        		<button id="b_twitter" data-theme="b">Twitter</button>
+        </article>
+    </section>
+    
+    
+	
+	
+    
+	<section id="Profile" data-role="page">
+        <header data-role="header" data-position="fixed" data-id="header">
+            <div style="text-align: center;"><img src="../images/mono24.png" alt="Smiley face" align="center">GRAMOLA PROJECT</p></div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" id="btnLists" >Your Lists</a></li>
+                    <li><a href="#shareLink" id="btnshare"  data-role="button" data-rel="dialog">Share</a></li>
+                    <li><a href="#" id="btnProfile" data-role="button" class="ui-btn-active">Profile</a></li>
+                                        
+                </ul>
+            </div>
+        </header>
+        <article data-role="content" data-theme="e">                          
+            
+            <div id="profileData"></div>
+            <div data-role="controlgroup">
+            <a href="#accSettings" data-role="button" align="center" data-theme="b" data-rel="dialog">Account settings</a>
+           </div>
+            
+          </article>
+        <article data-role="footer" data-position="fixed">
+        	<div data-role="controlgroup">
+        		<div data-role="controlgroup">
+            <a href="#logOut" data-role="button" align="center" data-theme="e" data-rel="dialog">Log out</a>
+           </div>
+           </div>
+        </article>
+        
+    </section>
+    
+    <section id="share" data-role="page">
+        <header data-role="header" data-position="fixed" data-id="header">
+            <div style="text-align: center;"><img src="../images/mono24.png" alt="Smiley face" align="center">GRAMOLA PROJECT</p></div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" id="btnLists" >Your Lists</a></li>
+                    <li><a href="#" id="btnshare"  data-role="button" class="ui-btn-active">Share</a></li>
+                    <li><a href="#Profile" id="btnProfile" data-role="button" >Profile</a></li>
+                                        
+                </ul>
+            </div>
+        </header>
+        <article data-role="content" data-theme="e">
+        	            <h1><img alt="Mi web" id="iconUpFramola" src="../images/mono24.png"/>share it</h1>
+
+          </article>
+            
+        </article>
+    </section>
+    
+    <section id="logOut" data-role="page">
+        <header data-role="header" >
+            <h1>¿Log Out?</h1>
+           
+        </header>
+        <article data-role="content" data-theme="e">
+        	<p>Already?? only 5 minutes more...</p>
+			
+                    <a href="#home" id="ok" data-role="button">..mm ok, just 5 minutes more</a>
+                    <a  id="chao" data-role="button" data-theme="a">Sorry, I have to go</a>
+           
+          </article>
+            
+        </article>
+    </section>
+    
+    <section id="accSettings" data-role="page">
+        <header data-role="header" >
+            <h1>Settings</h1>
+           
+        </header>
+        <article data-role="content" data-theme="e">
+        	<p align="center">Here you can change your data</p>
+        	<div data-role="collapsible-set">
+
+				<div data-role="collapsible" >
+				<h3>Change your nick</h3>
+				<p><form id="form_accSettingsNick">
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="text" name="changeNick" id="changeNick" value="" placeholder="Your new nick" />
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="password" name="changeNickPass" id="changeNickPass" value="" placeholder="Your Password" />
+                </div>
+                
+                
+                <input type="button" value="Save your changes" id="btnChangeNick" data-theme="a">
+            </form></p>
+				</div>
+				
+				<div data-role="collapsible">
+				<h3>Change your password</h3>
+				<p><form id="form_accSettingsPass">
+                
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="password" name="changePass" id="changePass" value="" placeholder="Your Password" />
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="password" name="chNewPass" id="chNewPass" value="" placeholder="Your new Password" />
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="password" name="chNewPassConf" id="chNewPassConf" value="" placeholder="Confirm your new Password" />
+                </div>
+                
+                <input type="button" value="Save your changes" id="btnChangePass" data-theme="a">
+            </form></p>
+				</div>
+				
+				<div data-role="collapsible">
+				<h3>Change your email</h3>
+				<p><form id="form_accSettingsEmail">
+                
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="text" name="changeEmail" id="changeEmail" value="" placeholder="Your new e-mail" />
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="password" name="chEmailPass" id="chEmailPass" value="" placeholder="Your Password" />
+                </div>
+                                
+                <input type="button" value="Save your changes" id="btnChangeEmail" data-theme="a">
+            </form></p>
+				</div>
+				
+				<div data-role="collapsible">
+				<h3>Change your avatar</h3>
+				<p><form id="form_accSettingsAvatar">
+                
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <input type="text" name="changeAvatar" id="changeAvatar" value="" placeholder="Your avatar´s Url" />
+                </div>
+                             
+                
+                <input type="button" value="Save your changes" id="btnChangeAvatar" data-theme="a">
+            </form></p>
+				</div>
+				
+			</div>
+            
+        </article>
+    </section>
+    
+</body>
+</html>
