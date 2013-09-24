@@ -1,10 +1,9 @@
 $(document).ready(function() {
-	$("#TableLinks").tablesorter(); 
-
 	$( "#Links" ).sortable({
       distance: 15
     });
     $( "#Links" ).disableSelection();
+    
 $.ajax({
 			type : 'POST',
 			url : 'sesionIniciada.php',
@@ -105,20 +104,23 @@ $.ajax({
 					for (var i = 0; i < vector.length; i++) {
 						vector[i].onclick = playOnlyOne;
 						/////////////////////////////////////////////////////////////////////////////////////////////////////////////////7
-						//playlist.addSong(new Song(vector[i].name, null));
+						playlist.addSong(new Song(vector[i].name, null));
 						//añado todas las canciones una a una en la playList, se encarga el propio metodo por dentro de añadirle a cada cancion el id de la lista a la que pertenece
 						/////////////////////////////////////////////////////////////////////////////////////////////////////////////////7
 					}
+					
 					//alert(playList.getNumberSongs());
 					var vector3 = document.getElementsByClassName('buttonDelLink');
 					for (var i = 0; i < vector3.length; i++) {
 						vector3[i].onclick = deleteLink;
 					}
+					
 
 					var vectorList = document.getElementsByClassName('buttonBList');
 					for (var i = 0; i < vectorList.length; i++) {
 						vectorList[i].onclick = deleteList;
 					}
+					
 
 					var vectorVList = document.getElementsByClassName('buttonVList');
 					for (var i = 0; i < vectorVList.length; i++) {
@@ -130,13 +132,13 @@ $.ajax({
 						vectorVotes[i].onclick = setVote;
 
 					}
-
+					
 					var vector2 = document.getElementsByClassName('linkIcon');
-					//alert(vector2.length);
+					
 					//$('#providerTabla').text("adios");
-
+					
 					for (var j = 0; j < vector2.length; j++) {
-						//alert(vector2[j].innerText);
+						
 						if (vector2[j].innerText == 'youtube') {
 							vector2[j].innerHTML = '<image style="width=60px height=60" src="./images/youtube.png">';
 							(playlist.getElement(j)).setProvider(PROVIDER.YOUTUBE);
@@ -151,10 +153,12 @@ $.ajax({
 						}
 						if (vector2[j].innerText == 'mp3') {
 							vector2[j].innerHTML = '<image style="width=50px height=40px" src="./images/music.png">';
-							playlist.getElement(j).setProvider(PROVIDER.MP3);
+							(playlist.getElement(j)).setProvider(PROVIDER.MP3);
+							
 						}
 
 					}
+
 					$("#TableLinks").tablesorter(); 
 				};
 				//cuando pulsa un link llama a esta funcion, el caso es saber que poscion en la lista tiene esta cancion
@@ -202,16 +206,118 @@ $.ajax({
 	placePlayer();
 		//que cuando se pulse el boton o lo que sea se genere la playlist
 		playlist = new Playlist(this.name);
+		alert("play list creada");
 		//primero un bucle, va a recorrer toda la tabla
 		//genera un elemento song, que lo añade a la playlist
-		var vector = document.getElementsByClassName('link');
+		/*var vector = document.getElementsByClassName('link');
 		for (var i = 0; i < vector.length; i++) {
 			playlist.addSong(new Song(vector[i].name, null));
 		}
-		alert(vector[0]);
+		*/
+		//alert(vector.length);
 	}
 	//para reproducir, como se que posicion actual es la de la lista, solo tendria que recorrer toda la tabla y buscar la poscion actual+1
-	
+	function deleteLink() {
+		//definir funcion ajax que llame a deleteLink.php que has de crear, y pasas este idLink como parametro
+		var param = 'idLinkBorrar=' + this.name;
+		if (confirm('Do you want remove this song?')) {
+			$.ajax({
+				url : 'borrarLink.php',
+				type : 'post',
+				dataType : 'html',
+				data : param,
+				cache : false,
+				success : function(response) {
+					if (response == true) {
+						alert('The song has been deleted');
+						$.ajax({
+							url : 'UpdateLinks.php',
+							type : 'post',
+							dataType : 'html',
+							cache : false,
+							success : data2
+						});
+
+					} else {
+						alert('The song hasn´t been deleted');
+
+					}
+				}
+			});
+		}
+	}
+	function deleteList() {
+		//definir funcion ajax que llame a deleteLink.php que has de crear, y pasas este idLink como parametro
+		var param = 'idLinkBorrar=' + this.name;
+		if (confirm('Do you want to remove this list?')) {
+			$.ajax({
+				url : 'borrarLista.php',
+				type : 'post',
+				dataType : 'html',
+				data : param,
+				cache : false,
+				success : function(response) {
+					if (response == true) {
+						alert('The list has been deleted');
+
+					} else {
+						alert('The list hasn´t been deleted');
+
+					}
+				}
+			});
+			updateLists();
+		}
+	}
+
+	function voteList() {
+		//definir funcion ajax que llame a voteList.php que has de crear, y pasas este idLink como parametro
+		var param = 'numVote=' + this.name;
+		if (confirm('Do you want to vote for this list?')) {
+			$.ajax({
+				url : 'votarLista.php',
+				type : 'post',
+				dataType : 'html',
+				data : param,
+				cache : false,
+				success : function(response) {
+					//alert(response);
+					if (response == true) {
+						alert('The list has been voted');
+						updateLists();
+					} else {
+						alert('The list hasn´t been voted');
+
+					}
+				}
+			});
+
+		}
+
+	}
+
+	function setVote() {
+		//definir funcion ajax que llame a setVote.php que has de crear, y pasas este numero como parametro
+		var param = "numVote=" + this.name + "&idLink=" + this.title;
+		$.ajax({
+			url : 'setVote.php',
+			type : 'post',
+			dataType : 'html',
+			data : param,
+			cache : false,
+			success : function(response) {
+				if (response == true) {
+					alert('The vote has been stablish');
+
+				} else {
+					alert(response);
+					//	alert('The the vote hasn´t been stablish');
+
+				}
+			}
+		});
+
+	}
 });
 $( "#popupPanelLeft" ).on({
     popupbeforeposition: function() {
@@ -232,3 +338,4 @@ function placePlayer() {
 		$('#tabs2-4').append(nextSongButton);
 		$('#tabs2-4').append(playButton);
 	}
+	

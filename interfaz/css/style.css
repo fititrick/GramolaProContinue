@@ -7,7 +7,14 @@
 position:fixed;
 bottom: 0px;
 width:100%;
-
+height: 1%;
+ opacity:0.80;
+ filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+#headerMain{
+	position:fixed;
+	max-height:25%;
+	width: 100%;
 }
 .navBar{
 max-width:33%;
