@@ -3,23 +3,21 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>GRAMOLA PROJECT</title>
-		<meta name="og:title" content="GRAMOLA PROJECT -share your music lists" />
-		<meta name="og:url" content="www.gramolapro.com" />
-		<meta name="og:description" content="Number 1 Service Sharing Music Around the World">
-		<meta name="og:image" content="http://www.gramolapro.com/images/Gramola.png"/>
+		<meta property="og:title" content="GRAMOLA PROJECT -share your music lists" />
+		<meta property="og:type" content="music.playlist" />
+		<meta property="og:url" content="http://gramolapro.com/FerPruebas/interfaz/" />
+		<meta property="og:description" content="Number 1 Service Sharing Music Around the World">
+		<meta property="og:image" content="http://www.gramolapro.com/images/Gramola.png"/>
 		<meta name="keywords" content="music, society, youth, groups, genres,artist,new trends" />
-		<meta name="origen" content="Spain" />
 		<meta name="author" content="www.gramolapro.com" />
-		<meta name="DC.Creator" content="www.gramolapro.com" />
-		<meta name="organization" content="www.gramolapro.com" />
-		<meta name="subject" content="music, list, lists" />
+		<!--<meta name="subject" content="music, list, lists" />
 		<meta name="Classification" content="World, Español, Regional, Europa, España" />
 		<meta name="DC.Language" scheme="RFC1766" content="English" />
 		<meta http-equiv="Content-Language" content="en" />
 		<meta name="lang" content="en" />
 		<meta name="Locality" content="Burgos, España" />
 		<meta name="distribution" content="global" />
-		<meta name="resource-type" content="document" />
+		<meta name="resource-type" content="document" />-->
 		<link rel="shortcut icon" href="http://www.gramolapro.com/images/favicon.ico">
 
 		<link rel="stylesheet" href="./css/jquery.mobile-1.3.1.css">
@@ -54,16 +52,16 @@
 	</head>
 
 
-	<body  style="background-image:url(./images/3.jpg); background-size: 100%">
+	<body>
 		<div id="p_login" data-role="page" >
 			<div data-role="header">
 				<h1>Gramola Project</h1>
-				<img class="image" alt="Gramola Project" src="./images/Gramola.png" align="middle" width="100px" height="100px"  >
+				<img class="image" alt="Gramola Project" src="./images/Gramola.png"  >
 				<!--<a href="index.html" data-icon="gear" class="ui-btn-right">Options</a>-->
 						
 				<div data-role="navbar" data-iconpos="bottom">
 					<ul>
-						<li><a href="#p_login" name="login" data-icon="grid" class="ui-btn-active">Login</a></li>
+						<li><a href="#p_login" data-icon="grid" class="ui-btn-active">Login</a></li>
 						<li><a href="#p_register" data-icon="plus">Register</a></li>
 						<li><a href="#p_contact" data-icon="gear">Contact Us</a></li>
 					</ul>
@@ -73,28 +71,14 @@
 				<div style="margin: auto; width: 50%;margin-top:10%;">
 						<form name="frpanel" id="f_login" method="post" >
 							<div data-role="footer" data-theme="a" class="ui-grid-solo">
-
-								<div class="ui-block-a" >
-									<div data-role="fieldcontain">
+									<div class="ui-block-a">
 										<label for="user">User:</label>
-										<input type="text" id="user" name="user" value="" data-mini="true" />
-									</div>
-								</div>
-								<div class="ui-block-a">
-									<div data-role="fieldcontain">
+										<input type="text" id="user" name="user" value="" data-mini="true" required/>
 										<label for="pass">Password:</label>
-										<input type="password" id="pass" name="pass" value="" data-mini="true" />
+										<input type="password" id="pass" name="pass" value="" data-mini="true" required/>
+										<input type="submit" id="B_Login" value="LOGIN" data-theme="b" />
 									</div>
-								</div>
-								<div class="ui-block-a">
-									<div id="divBlogin" style="margin:6px 0 0 10px;">
-										<button id="B_Login" type="submit" data-theme="b" class="button">
-											LOGIN
-										</button>
-									</div>
-								</div>
 							</div>
-
 						</form>
 				</div>
 			</div>	
@@ -103,51 +87,29 @@
 		<div id="p_register" data-role="page" >
 			<div data-role="header">
 				<h1>Gramola Project</h1>
-				<img class="image" src="./images/Gramola.png" align="middle" width="100px" height="100px"  >
+				<img class="image" src="./images/Gramola.png" alt="Gramola">
 				<!--<a href="index.html" data-icon="gear" class="ui-btn-right">Options</a>-->
 						
 				<div data-role="navbar" data-iconpos="bottom">
 					<ul>
-						<li><a href="#p_login" name="login" data-icon="grid" >Login</a></li>
-						<li><a href="#p_register" data-icon="plus"class="ui-btn-active">Register</a></li>
+						<li><a href="#p_login" data-icon="grid" >Login</a></li>
+						<li><a href="#p_register" data-icon="plus" class="ui-btn-active">Register</a></li>
 						<li><a href="#p_contact" data-icon="gear">Contact Us</a></li>
 					</ul>
 				</div><!-- /navbar -->
 			</div><!-- /header -->
 			<div style="margin: auto; width: 50%; top: 20%;margin-top:10%;">
-				<form name="frpanel" id="registroShared" method="post">
+				<form name="frpanel" id="registro" method="post">
 					<div data-role="footer" data-theme="a" class="ui-grid-solo">
-						<div class="ui-block-a" >
-							<div data-role="fieldcontain">
-								<label for="user1Shared">Nick:</label>
-								<input type="text" id="user1Shared" name="user" value="" data-mini="true" />
-							</div>
-						</div>
 						<div class="ui-block-a">
-							<div data-role="fieldcontain">
-								<label for="pass1Shared">Password:</label>
-								<input type="password" id="pass1Shared" name="pass" value="" data-mini="true" />
-							</div>
-	
+							<label for="user1Shared">Nick:</label>
+							<input type="text" id="user1Shared" name="user" value="" data-mini="true" required/>
+							<label for="pass1Shared">Password:</label>
+							<input type="password" id="pass1Shared" name="pass" value="" data-mini="true" required/>
+							<label for="emailShared">Email :</label>
+							<input type="email" id="emailShared" name="email" value="" data-mini="true" required/>
+							<input type="submit" id="register" value="REGISTER" data-theme="b" />
 						</div>
-						<div class="ui-block-a">
-							<div data-role="fieldcontain">
-								<label for="emailShared">Email :</label>
-								<input type="email" id="emailShared" name="email" value="" data-mini="true" />
-							</div>
-	
-						</div>
-						<div class="ui-block-a">
-							<div style="margin:6px 0 0 10px;">
-								<button id="register" type="submit" data-theme="b" class="button">
-									REGISTER
-								</button>
-							</div>
-						</div>
-	
-					</div>
-					<div class="ui-grid-solo">
-						<!--<p><a href="#p_links"  data-role="button" data-theme="e" data-icon="back">Back to previous page</a></p>-->
 					</div>
 				</form>
 			</div>
@@ -157,13 +119,13 @@
 			<div id="headerMain" data-role="header">
 				<h1>Gramola Project</h1>
 				
-				<img  class="image" alt="Gramola Project" src="./images/Gramola.png" align="middle" width="100px" height="100px"  />
+				<img  class="image" alt="Gramola Project" src="./images/Gramola.png"/>
 				<!--<img class="image" alt="Gramola Project" src="./images/mono50.png" data-fullsrc="./images/mono100.png" align="middle">-->
 				
-					<button  class="ui-btn-left">User y foto de user<img class="image" src="./images/Gramola.png" width="100px" height="100px" ></button>
-					<button id="b_LogOut"  class="ui-btn-right">Log Out<img class="image" src="./images/logout.png" width="100px" height="100px" ></button>
+					<button  class="ui-btn-left">User y foto de user<img class="image" src="./images/Gramola.png" alt="Gramola"/></button>
+					<button id="b_LogOut"  class="ui-btn-right">Log Out<img class="image" src="./images/logout.png" alt="Log Out" /></button>
 				
-					<div data-type="horizontal" style="width:100%;" data-role="header" style="position: relative; top: 1%;">
+					<div data-type="horizontal" style="width:100%; position: relative; top: 1%;" data-role="header">
 						<a href="#popupPanelRight" class="ui-btn-left" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button" data-theme="e">OPTIONS FOR LISTS </a>
 						<a href="#popupPanelLeft" class="ui-btn-right" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button" data-theme="e">OPTIONS FOR LINKS </a>
 					</div>
@@ -184,15 +146,12 @@
 				<table id="TableLinks" class="tablesorter" >
 					
 					<thead>
-						<tr>
-							<th >Name</th>
+						<tr><th >Name</th>
 							<th >Artist</th>
 							<th >Icon</th>
 							<th >Position</th>
 							<th >Rate this song</th>
-							<th >Delete</th>
-
-						</tr>
+							<th >Delete</th></tr>
 					</thead>
 					<tbody  id="Links" style="background-color: #A9E2F3; color:black" ></tbody>
 				</table>
@@ -203,8 +162,10 @@
 				<div  data-role="collapsible-set" data-content-theme="b" >
 					<div data-role="collapsible" data-theme="e" data-content-theme="e">
 						<h3>New List</h3>
-						<input data-theme="a" id="txtNewList" type="text" name="name" id="basic" value='List name'  onblur="if(this.value == '') { this.value='List name'}" onfocus="if (this.value == 'List name') {this.value=''}" />
-						<a id="btnNewList" data-role="button" data-inline="true" data-theme="e">Save</a>
+						<form name="frpanel" id="newList" method="post">
+							<input  type="text" id="txtNewList" name="name" value='List name'  onblur="if(this.value == '') { this.value='List name'}" onfocus="if (this.value == 'List name') {this.value=''}" data-theme="a" data-mini="true" required/>
+							<input type="submit"  id="btnNewList" value="Save" data-theme="b" />
+						</form>
 					</div>
 					<div  data-role="collapsible" data-theme="b" data-content-theme="b">
 						<h3>Vote for this List</h3>
@@ -213,27 +174,27 @@
 								<button  id="b_VoteList" type="submit" title="Vote for this List" data-theme="b" name="1" class="buttonVList">
 									1 banana for this List
 									<br>
-									<img src="./images/fotoPlatano32.png"></img>
+									<img src="./images/fotoPlatano32.png" alt="Platanos"/>
 								</button>
-								<button  id="b_VoteList" type="submit" title="Vote for this List" data-theme="b" name="2" class="buttonVList">
+								<button  id="b_VoteList2" type="submit" title="Vote for this List" data-theme="b" name="2" class="buttonVList">
 									2 bananas for this List
 									<br>
-									<img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img>
+									<img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos"/>
 								</button>
-								<button  id="b_VoteList" type="submit" title="Vote for this List" data-theme="b" name="3" class="buttonVList">
+								<button  id="b_VoteList3" type="submit" title="Vote for this List" data-theme="b" name="3" class="buttonVList">
 									3 bananas for this List
 									<br>
-									<img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img>
+									<img src="./images/fotoPlatano32.png" alt="Platanos"/><img src="./images/fotoPlatano32.png" alt="Platanos"/><img src="./images/fotoPlatano32.png" alt="Platanos"/>
 								</button>
-								<button  id="b_VoteList" type="submit" title="Vote for this List" data-theme="b" name="4" class="buttonVList">
+								<button  id="b_VoteList4" type="submit" title="Vote for this List" data-theme="b" name="4" class="buttonVList">
 									4 bananas for this List
 									<br>
-									<img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img>
+									<img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos"/>
 								</button>
-								<button  id="b_VoteList" type="submit" title="Vote for this List" data-theme="b" name="5" class="buttonVList">
+								<button  id="b_VoteList5" type="submit" title="Vote for this List" data-theme="b" name="5" class="buttonVList">
 									5 bananas for this List
 									<br>
-									<img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img><img src="./images/fotoPlatano32.png"></img>
+									<img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" />
 								</button>
 							</div>
 
@@ -242,11 +203,11 @@
 					<div data-role="collapsible" data-theme="b" data-content-theme="b">
 						<h3>Delete List</h3>
 						<div class="ui-grid-solo">
-							<div id="div_BorrarLista" class="ui-block-a" id="div_BorrarLista">
+							<div id="div_BorrarLista" class="ui-block-a">
 								<button  id="b_BorrarLista" type="submit" title="Delete Actual List" data-theme="b" class="buttonBList">
 									DELETE LIST
 									<br>
-									<img src="./images/eliminar32.png"></img>
+									<img src="./images/eliminar32.png" alt="Platanos" />
 								</button>
 							</div>
 						</div>
@@ -257,9 +218,9 @@
 						<div class="ui-grid-solo">
 							<div id="div_Compartir" class="ui-block-a">
 								<table id="tablaComp">
-									<tr>
-										<td id="b_facebook"><img src="./images/fb.png" /></td>
-										<td id="b_twitter"><img src="./images/Twitter.png" /></td>
+									<tr >
+										<td id="b_facebook"><img src="./images/fb.png" alt="facebook" /></td>
+										<td id="b_twitter"><img src="./images/Twitter.png" alt="twitter" /></td>
 									</tr>
 
 								</table>
@@ -269,7 +230,7 @@
 											<button  id="b_Qr" type="submit" title="Generate QR" data-theme="b" class="lightbox">
 												Generate QR
 												<br>
-												<img src="./images/qr_icon32.png"></img>
+												<img src="./images/qr_icon32.png" alt="icon32" />
 											</button>
 										</div>
 									</div>
@@ -292,14 +253,8 @@
 						<h3>Rights</h3>
 						<div class="ui-grid-solo">
 							<div id="div_Right" class="ui-block-a">
-								<tr>
-									<td>
-									<button id="b_setPublic" class="share" name="public" input="submit"><img src="./images/unlock24.png" />Public
-									</button></td>
-									<td>
-									<button id="b_setPrivate" class="share" name="private" input="submit"><img src="./images/lock24.png" />Private
-									</button></td>
-								</tr>
+								<tr><td><button id="b_setPublic" class="share" name="public" ><img src="./images/unlock24.png" alt="unlock" />Public</button></td>
+									<td><button id="b_setPrivate" class="share" name="private" ><img src="./images/lock24.png" alt="lock" />Private</button></td></tr>
 							</div>
 						</div>
 
@@ -314,7 +269,7 @@
 						<h3>New Song</h3>
 						<form name="frpanel" id="divNewLink" method="post" >
 							<div data-role="fieldcontain" >
-								<label for="url">Link:</label>
+								<label for="urlLink">Link:</label>
 								<input type="url" name="urlLink" id="urlLink" value="" />
 							</div>
 
@@ -330,15 +285,15 @@
 
 							<div data-role="fieldcontain">
 								<label for="number-pattern" style="font-size: 13">List Position</label>
-								<input type="number" min="0" name="position" pattern="[0-9]*" id="number-pattern" value="" placeholder="Pattern attribute [0-9]* for a numeric keypad" />
+								<input type="number" id="number-pattern" pattern="[0-9]*" min="0" name="position"  value="" placeholder="Pattern attribute [0-9]* for a numeric keypad" />
 							</div>
 
 							<div data-role="fieldcontain">
-								<label for="text">Singer or Group name</label>
+								<label for="singerLink">Singer or Group name</label>
 								<input type="text" name="singer" id="singerLink" value="" />
 							</div>
 							<div data-role="fieldcontain">
-								<label for="text">Song Name</label>
+								<label for="songNameLink">Song Name</label>
 								<input type="text" name="songName" id="songNameLink" value="" />
 							</div>
 
@@ -368,12 +323,12 @@
 		<div id="p_contact" data-role="page" >
 			<div data-role="header">
 				<h1>Gramola Project</h1>
-				<img class="image" src="./images/Gramola.png" align="middle" width="100px" height="100px"  >
+				<img class="image" src="./images/Gramola.png" alt="Gramola" />
 				<!--<a href="index.html" data-icon="gear" class="ui-btn-right">Options</a>-->
 						
 				<div data-role="navbar" data-iconpos="bottom">
 					<ul>
-						<li><a href="#p_login" name="login" data-icon="grid" >Login</a></li>
+						<li><a href="#p_login" data-icon="grid" >Login</a></li>
 						<li><a href="#p_register" data-icon="plus" >Register</a></li>
 						<li><a href="#p_contact" data-icon="gear" class="ui-btn-active">Contact Us</a></li>
 					</ul>

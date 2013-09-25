@@ -27,6 +27,7 @@ $.ajax({
 			url : 'logOut.php',
 			success : function(response) {
 				window.location = ("#p_login");
+				location.reload(true);
 			}
 		});
 
@@ -38,8 +39,9 @@ $.ajax({
 			data : $('#f_login').serialize(),
 			success : function(result) {
 				if (result == 1) {
-					fLogin();
 					window.location = ("#p_main");
+					location.reload(true);
+					fLogin();
 				} else {
 					alert("Unidentified User" + result);
 					location.reload(true);
@@ -55,6 +57,7 @@ $.ajax({
 				success: function(response) {  
 					if(response==1){
 						window.location = ("#p_main");
+						location.reload(true);
 					}
 					else
 						alert(response);
@@ -80,7 +83,7 @@ $.ajax({
 			function cambiaOnClickListas() {
 				this.cambia = function cambia(donde) {
 					donde.innerHTML = html;
-					$('#d_listContainer').className = "listas";
+					//$('#d_listContainer').className = "listas";
 					var vector = document.getElementsByClassName('list');
 					for (var i = 0; i < vector.length; i++) {
 						vector[i].onclick = this.muestraLinks;
@@ -89,7 +92,7 @@ $.ajax({
 					//    $('#lista').listview("refresh");
 				};
 				this.muestraLinks = function muestraLinks() {
-					$("#progressbar" ).fadeIn();
+					//$("#progressbar" ).fadeIn();
 					var vector = document.getElementsByClassName('listActive');
 					for (var i = 0; i < vector.length; i++) {
 						vector[i].className = "list";
@@ -229,7 +232,7 @@ $.ajax({
 	placePlayer();
 		//que cuando se pulse el boton o lo que sea se genere la playlist
 		playlist = new Playlist(this.name);
-		$( "#progressbar" ).hide();
+		//$( "#progressbar" ).hide();
 		//primero un bucle, va a recorrer toda la tabla
 		//genera un elemento song, que lo añade a la playlist
 		/*var vector = document.getElementsByClassName('link');
@@ -258,7 +261,7 @@ $.ajax({
 							type : 'post',
 							dataType : 'html',
 							cache : false,
-							success : data2
+							success : obtengoLinks
 						});
 
 					} else {
@@ -317,6 +320,27 @@ $.ajax({
 
 		}
 
+	}
+	$('#btnNewList').click(function() {
+		$.ajax({
+			type : 'POST',
+			url : 'newlist.php',
+			data : $('#newList').serialize(),
+			success : function(html) {
+				updateLists();
+			}
+		});
+
+	});
+	function updateLists() {
+		$.ajax({
+			url : 'lists.php',
+			type : 'post',
+			dataType : 'html',
+			cache : false,
+			success : obtengoListas
+		});
+		location.reload(true);
 	}
 
 	function setVote() {
