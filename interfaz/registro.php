@@ -24,7 +24,7 @@ $email=mysqli_real_escape_string($conexion,$email);
 				exit();
 			}
 		 else{
-		    //Se recoge los datos insertados en una linea para despues poder crear la sesion.
+		    //Se recoge los datos insertados en una lianea para despues poder crear la sesion.
 			$consulta = "SELECT nick, pwd,idUser  FROM users where nick='$usuario'";
 			$result=mysqli_query($conexion,$consulta) ;	
 			if (! $result){
@@ -35,6 +35,9 @@ $email=mysqli_real_escape_string($conexion,$email);
 		    {
 			   	//el 0 es el nick, el 1 la password
 					//defino una sesion y guardo datos
+					ini_set('session.cookie_httponly', 1);
+					ini_set("session.cookie_lifetime",3600*24*30);// tiempo de vida de una cookie 
+					ini_set("session.gc_maxlifetime",3600*24*30); // Tiempo de vida de las sesiones 
 					session_start();
 					$_SESSION["autentificado"]="SI";
 					$_SESSION["nick"]=$row[0];

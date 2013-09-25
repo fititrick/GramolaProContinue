@@ -3,35 +3,49 @@ $(document).ready(function() {
       distance: 15
     });
     $( "#Links" ).disableSelection();
-    
+    $( "#progressbar" ).progressbar({
+		  value: false
+	});
+	$( "#progressbar" ).hide();
 $.ajax({
 			type : 'POST',
 			url : 'sesionIniciada.php',
 			success : function(response) {
-				if (response == true) {//si hay sesion
+				if (response == true) { //si hay sesion
 					window.location = ("#p_main");
+					//location.reload(true);
 					fLogin();
+				}
+				else {
+					window.location = ("#p_login");
 				}
 }});
 
-	$('#B_LoginShare').click(function() {
+	$('#b_LogOut').click(function() {
+		$.ajax({
+			type : 'POST',
+			url : 'logOut.php',
+			success : function(response) {
+				window.location = ("#p_login");
+			}
+		});
+
+	});
+	$('#B_Login').click(function() {
 		$.ajax({
 			type : 'POST',
 			url : 'login.php',
-			data : $('#loginShare').serialize(),
+			data : $('#f_login').serialize(),
 			success : function(result) {
 				if (result == 1) {
-					fLogin;
+					fLogin();
 					window.location = ("#p_main");
 				} else {
 					alert("Unidentified User" + result);
 					location.reload(true);
-
 				}
-
 			}
 		});
-
 	});
 	$('#register').click(function(){
 			$.ajax({
@@ -66,6 +80,7 @@ $.ajax({
 			function cambiaOnClickListas() {
 				this.cambia = function cambia(donde) {
 					donde.innerHTML = html;
+					$('#d_listContainer').className = "listas";
 					var vector = document.getElementsByClassName('list');
 					for (var i = 0; i < vector.length; i++) {
 						vector[i].onclick = this.muestraLinks;
@@ -74,6 +89,7 @@ $.ajax({
 					//    $('#lista').listview("refresh");
 				};
 				this.muestraLinks = function muestraLinks() {
+					$("#progressbar" ).fadeIn();
 					var vector = document.getElementsByClassName('listActive');
 					for (var i = 0; i < vector.length; i++) {
 						vector[i].className = "list";
@@ -102,6 +118,7 @@ $.ajax({
 		function obtengoLinks(html2) {
 			//$html.filter('.list').appendTo("#nameList");
 			//$('#Links').find('#nameLinks').html(html);
+			
 			function cambiaOnClickLinks() {
 				this.change = function change(where) {
 					where.innerHTML = "";
@@ -212,7 +229,7 @@ $.ajax({
 	placePlayer();
 		//que cuando se pulse el boton o lo que sea se genere la playlist
 		playlist = new Playlist(this.name);
-		alert("play list creada");
+		$( "#progressbar" ).hide();
 		//primero un bucle, va a recorrer toda la tabla
 		//genera un elemento song, que lo añade a la playlist
 		/*var vector = document.getElementsByClassName('link');
@@ -340,8 +357,8 @@ $( "#popupPanelRight" ).on({
     }
 });
 function placePlayer() {
-		$('#tabs2-4').append(stopButton);
-		$('#tabs2-4').append(nextSongButton);
-		$('#tabs2-4').append(playButton);
+		$('#player').append(stopButton);
+		$('#player').append(nextSongButton);
+		$('#player').append(playButton);
 	}
 	

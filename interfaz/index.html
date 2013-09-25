@@ -54,7 +54,6 @@
 	</head>
 
 
-	<!--<body background="./images/background.jpg">-->
 	<body  style="background-image:url(./images/3.jpg); background-size: 100%">
 		<div id="p_login" data-role="page" >
 			<div data-role="header">
@@ -72,24 +71,24 @@
 			</div><!-- /header -->
 			<div id="login">
 				<div style="margin: auto; width: 50%;margin-top:10%;">
-						<form name="frpanel" id="loginShare" method="post" >
+						<form name="frpanel" id="f_login" method="post" >
 							<div data-role="footer" data-theme="a" class="ui-grid-solo">
 
 								<div class="ui-block-a" >
 									<div data-role="fieldcontain">
-										<label for="userShare">User:</label>
-										<input type="text" id="userShare" name="user" value="" data-mini="true" />
+										<label for="user">User:</label>
+										<input type="text" id="user" name="user" value="" data-mini="true" />
 									</div>
 								</div>
 								<div class="ui-block-a">
 									<div data-role="fieldcontain">
-										<label for="passShare">Password:</label>
-										<input type="password" id="passShare" name="pass" value="" data-mini="true" />
+										<label for="pass">Password:</label>
+										<input type="password" id="pass" name="pass" value="" data-mini="true" />
 									</div>
 								</div>
 								<div class="ui-block-a">
 									<div id="divBlogin" style="margin:6px 0 0 10px;">
-										<button id="B_LoginShare" type="submit" data-theme="b" class="button">
+										<button id="B_Login" type="submit" data-theme="b" class="button">
 											LOGIN
 										</button>
 									</div>
@@ -101,7 +100,7 @@
 			</div>	
 			
 		</div>
-		<div data-role="page" id="p_register">
+		<div id="p_register" data-role="page" >
 			<div data-role="header">
 				<h1>Gramola Project</h1>
 				<img class="image" src="./images/Gramola.png" align="middle" width="100px" height="100px"  >
@@ -154,14 +153,15 @@
 			</div>
 		</div>
 
-		<div data-role="page" id="p_main">
+		<div id="p_main" data-role="page" >
 			<div id="headerMain" data-role="header">
 				<h1>Gramola Project</h1>
 				
 				<img  class="image" alt="Gramola Project" src="./images/Gramola.png" align="middle" width="100px" height="100px"  />
 				<!--<img class="image" alt="Gramola Project" src="./images/mono50.png" data-fullsrc="./images/mono100.png" align="middle">-->
 				
-					<button  class="ui-btn-right">User y foto de user<img class="image" src="./images/Gramola.png" width="100px" height="100px" ></button>
+					<button  class="ui-btn-left">User y foto de user<img class="image" src="./images/Gramola.png" width="100px" height="100px" ></button>
+					<button id="b_LogOut"  class="ui-btn-right">Log Out<img class="image" src="./images/logout.png" width="100px" height="100px" ></button>
 				
 					<div data-type="horizontal" style="width:100%;" data-role="header" style="position: relative; top: 1%;">
 						<a href="#popupPanelRight" class="ui-btn-left" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button" data-theme="e">OPTIONS FOR LISTS </a>
@@ -180,8 +180,9 @@
 			<div id="d_listContainer"  class="listas">
 			</div>
 			<div class="links">
-			
+			<div id="progressbar"></div>
 				<table id="TableLinks" class="tablesorter" >
+					
 					<thead>
 						<tr>
 							<th >Name</th>
@@ -346,23 +347,22 @@
 					</div>
 				</div>
 			</div>
-			<div id="footer" data-role="footer" class="ui-bar">
-				PLAYER
-				<div id="tabs2-4" class="playerPlaceholder">
-<div id='html5Player' class='player'>
-<div id='youTubePlayer'>
-</div>
-</div>
-					</div>
-
-				</div>
-				 
-		</div>
-		
-		<div data-role="page" id="p_links" class="contentDiv" >
 			
+			<div id="footer" data-role="footer" class="ui-bar" >
+				PLAYER
+				<div class="contenidoFooter">
+					<div id="player" class="playerPlaceholder">
+						
+					</div>
+					<div id='html5Player' class="player">
+							<div id='youTubePlayer'>
+							</div>
+						</div>
+	
+					</div>
+			</div>
 		</div>
-		
+
 		<div data-role="page" id="profile-Page" class="contentDiv">
 		</div>
 		<div id="p_contact" data-role="page" >

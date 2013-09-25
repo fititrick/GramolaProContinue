@@ -6,7 +6,7 @@ include "conexion.php";
 	$contrasena=$_POST['pass'];
 	$usuario2=mysqli_real_escape_string($conexion,$usuario);
 	$contrasena=mysqli_real_escape_string($conexion,hash('md5', $contrasena));
-	$consulta ="SELECT nick, pwd,idUser  FROM users where nick='$usuario2' and pwd='$contrasena'";
+	$consulta ="SELECT nick, pwd,idUser  FROM users where nick='$usuario' and pwd='$contrasena'";
 	$result=mysqli_query($conexion, $consulta) ;
 	if (mysqli_num_rows($result)==0){
 	  echo 0;
@@ -30,7 +30,13 @@ include "conexion.php";
 		   	//el 0 es el nick, el 1 la password
 		     
 				//defino una sesion y guardo datos
+				ini_set('session.cookie_httponly', 1);
+				ini_set("session.cookie_lifetime",3600*24*30);// tiempo de vida de una cookie 
+				ini_set("session.gc_maxlifetime",3600*24*30); // Tiempo de vida de las sesiones 
+				
+				//setcookie("GRAMOLA-PROJECT","GRAMOLA-PROJECT",time()+3600*24*365*100,"gramolapro.com",1) ; 
 				session_start();
+				$_SESSION['fingerprint'] = md5($_SERVER['HTTP_USER_AGENT']);
 				$_SESSION["autentificado"]="SI";
 				$_SESSION["nick"]=$row[0];
 				$_SESSION["idUser"]=$row[2];
@@ -38,6 +44,7 @@ include "conexion.php";
 				//header("Location: principal.php");
 				$variable=$_SESSION["nick"];
 				$_SESSION["NList"]=0;
+				$_SESSION["ultimoAcceso"]= date("Y-n-j H:i:s"); //Guardo los datos del último acceso a la web
 				echo 1;
 			 
 	      }
@@ -45,6 +52,6 @@ include "conexion.php";
 	include "close_conexion.php";
 }
 else {
-	echo 0;
+	echo $_POST['user'];
 }
 ?>
