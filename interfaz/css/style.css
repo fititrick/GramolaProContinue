@@ -7,7 +7,7 @@
 position:fixed;
 bottom: 0px;
 width:100%;
-height: 1%;
+height: 1.5%;
  opacity:0.80;
  filter:alpha(opacity=80); /* For IE8 and earlier */
 }
@@ -19,7 +19,10 @@ height: 1%;
 	position:fixed;
 	width: 100%;
 }
-
+.perfil{
+width: 5%;
+height:5%;	
+}
 .vertical {
 position:fixed;
 background-color: white;
@@ -36,11 +39,6 @@ left:10%;
 top:25%;
 overflow: auto;
 
-}
-.listas .clsSeleccionado{
-	background: #21BFF2;
-	color: #fff;
-	text-shadow: 1px 1px 1px #000;
 }
 
 .links{
@@ -178,4 +176,50 @@ html>body #Links tr{ height: 1.5em; line-height: 1.2em; }
 
 .buttonOfVotes{
 	background: #269623;
+}
+
+@media screen and (max-width: 480px) {
+   /* Aquí van las reglas CSS necesarias */
+  .image{
+  	width: 16px;
+  	height: 16px;
+  }
+  .vertical {
+position:fixed;
+background-color: white;
+width: 0px;
+height: 0%;
+left:0%;
+top:0%;
+}
+.listas{
+position:inherit;
+left:0%;
+max-width:100%;
+}
+
+.links{
+
+top:60%;
+left:0%;
+width: 100%;
+max-width:100%;
+height: auto;
+}
+.list {
+	font-size:8px;
+	line-height:;
+	height:50px;
+	width:60px;
+}
+.listActive{
+	font-size:8px;
+	line-height:;
+	height:25px;
+	width:30px;
+}
+.perfil{
+width: 5%;
+height:5%;	
+}
 }
