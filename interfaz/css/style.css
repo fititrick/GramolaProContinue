@@ -11,29 +11,31 @@ height: 1%;
  opacity:0.80;
  filter:alpha(opacity=80); /* For IE8 and earlier */
 }
+
+#footer:hover {
+  height: 15%;  
+ }
 #headerMain{
 	position:fixed;
-	max-height:25%;
 	width: 100%;
 }
-.navBar{
-max-width:33%;
-}
+
 .vertical {
 position:fixed;
 background-color: white;
 width: 2px;
 height: 50%;
-left:37%;
+left:42%;
 top:25%;
 }
 .listas{
 position:fixed;
-width: 30%;
+max-width: 30%;
 height: 67%;
-left:8%;
+left:10%;
 top:25%;
 overflow: auto;
+
 }
 .listas .clsSeleccionado{
 	background: #21BFF2;
@@ -43,11 +45,13 @@ overflow: auto;
 
 .links{
 position:fixed;
-width: 50%;
+min-width:50%;
+max-width: 65%;
 height: 67%;
-left:38%;
+left:43%;
 top:25%;
 overflow: auto;
+
 }
 .list {
 	-moz-box-shadow:inset 4px 5px 7px -1px #fce2c1;
@@ -84,36 +88,54 @@ overflow: auto;
 	text-align:center;
 	vertical-align:text-top;
 	text-shadow:1px 2px 0px #72a81b;
+	margin:10px;
 }
 .list:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
 	background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
 	background-color:#8cb82b;
-}.list:active {
+}
+.list:Active{
 	position:relative;
 	top:10px;
 }
-.OpcionesListas{
-position:fixed;
-width: 8%;
-height: 67%;
-left:0%;
-top:25%;
-overflow: auto;
-}
-.OpcionesLinks{
-position:fixed;
-width: 13%;
-height: 67%;
-left:88%;
-top:25%;
-overflow: auto;
+.listActive {
+	
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+    background: #2E5481;
+    -webkit-border-top-left-radius:37px;
+	-moz-border-radius-topleft:37px;
+	border-top-left-radius:37px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:37px;
+	-moz-border-radius-bottomright:37px;
+	border-bottom-right-radius:37px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0px;
+	border:4px solid #eeb44f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial Black;
+	font-size:16px;
+	font-weight:bold;
+	font-style:normal;
+	line-height:;
+	height:100px;
+	width:133px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:text-top;
+	
+	margin:10px;
 }
 
-#footer:hover {
-  height: 15%;  
- }
 #popupPanelLeft-popup {
     right: 0 !important;
     left: auto !important;
@@ -122,7 +144,7 @@ overflow: auto;
 }
 #popupPanelLeft {
     width: 220px;
-	top:10%;
+	top:15%;
     border: 1px solid #000;
     border-right: none;
     background: rgba(0,0,0,.5);
@@ -139,11 +161,11 @@ overflow: auto;
 }
 #popupPanelRight {
     width: 220px;
-	top:10%;
+	top:15%;
     border: 1px solid #000;
-    border-right: none;
+    border-left: none;
     background: rgba(0,0,0,.5);
-    margin: -1px 0;
+    margin: 1px 0;
 }
 #popupPanelRight .ui-btn {
     margin: 2em 15px;
@@ -154,3 +176,6 @@ html>body #Links tr{ height: 1.5em; line-height: 1.2em; }
 .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
 
 
+.buttonOfVotes{
+	background: #269623;
+}

@@ -74,6 +74,12 @@ $.ajax({
 					//    $('#lista').listview("refresh");
 				};
 				this.muestraLinks = function muestraLinks() {
+					var vector = document.getElementsByClassName('listActive');
+					for (var i = 0; i < vector.length; i++) {
+						vector[i].className = "list";
+						
+					}
+					this.className = "listActive";
 					var param = 'id=' + this.name;
 					document.f1.campo1.value = "http://gramolapro.com/index.html?v=" + this.name;
 					crearPlayList(this.name);
