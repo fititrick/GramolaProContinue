@@ -2098,7 +2098,7 @@ label.ui-submit { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 	.ui-hide-label .ui-btn.ui-submit { width: auto; display: block; }
 }
 .ui-collapsible-inset { margin: .5em 0; }
-.ui-collapsible-heading { font-size: 16px; display: block; margin: 0 -15px; padding: 0; position: relative; }
+.ui-collapsible-heading { display: block; margin: 0 -15px; padding: 0; position: relative; }
 .ui-collapsible-inset .ui-collapsible-heading { margin: 0; }
 .ui-collapsible-heading .ui-btn { text-align: left; margin: 0; border-left-width: 0; border-right-width: 0; }
 .ui-collapsible-inset .ui-collapsible-heading .ui-btn { border-right-width: 1px; border-left-width: 1px; }
@@ -2452,7 +2452,7 @@ label.ui-submit { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 .ui-select .ui-btn-icon-right.ui-li-has-count .ui-li-count { right: 45px; }
 .ui-select .ui-mini.ui-btn-icon-right.ui-li-has-count .ui-li-count { right: 32px; }
 /* labels */
-label.ui-select { font-size: 16px; line-height: 1.4; font-weight: normal; margin: 0 0 .3em; display: block; }
+label.ui-select { line-height: 1.4; font-weight: normal; margin: 0 0 .3em; display: block; }
 /*listbox*/
 .ui-select .ui-btn-text, .ui-selectmenu .ui-btn-text { display: block; min-height: 1em; overflow: hidden !important;
 /* This !important is required for iPad Safari specifically. See https://github.com/jquery/jquery-mobile/issues/2647 */ }
@@ -2473,7 +2473,7 @@ label.ui-select { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 }
 /* when no placeholder is defined in a multiple select, the header height doesn't even extend past the close button.  this shim's content in there */
 .ui-selectmenu .ui-header h1:after { content: '.'; visibility: hidden; }
-label.ui-input-text { font-size: 16px; line-height: 1.4; display: block; font-weight: normal; margin: 0 0 .3em; }
+label.ui-input-text { line-height: 1.4; display: block; font-weight: normal; margin: 0 0 .3em; }
 input.ui-input-text, textarea.ui-input-text { background-image: none; padding: .4em; margin: .5em 0; min-height: 1.4em; line-height: 1.4em; font-size: 16px; display: block; width: 100%; outline: 0; }
 input.ui-mini, .ui-mini input, textarea.ui-mini { font-size: 14px; }
 div.ui-input-text input.ui-input-text, div.ui-input-text textarea.ui-input-text,

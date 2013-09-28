@@ -2,19 +2,32 @@ body{
 	background-image:url('../images/3.jpg');
 	background-size: 100%;
 	overflow-y: auto;
+	font-family:Arial Black;
+	font-weight:bold;
+	font-style:normal;
 }
  .linkImg{
-  	width: 60px;
+  	width: 80px;
   	height: auto;
   }
 .image {
 	align:middle;
-	width:100px;
-	height:100px; 
+	width:auto;
+	height:80px; 
      display: block;
     margin-left: auto;
     margin-right: auto;
 }
+.imagePerfil{
+	align:middle;
+	width:auto;
+	height:80px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;	
+    padding:2px;
+}
+
 .botonOpcionesheader{
 	font-size:16px;
 	font-family:Arial Black;
@@ -23,15 +36,16 @@ body{
 	position: relative;
 	height: auto;
 	width: auto;
-	max-width:15%;
+	text-align: center;
+	padding:10px;
 }
 #footer {
 position:fixed;
 bottom: 0px;
 width:100%;
 height: 1.5%;
- opacity:0.85;
- filter:alpha(opacity=85); /* For IE8 and earlier */
+opacity:0.85;
+filter:alpha(opacity=85); /* For IE8 and earlier */
 margin: 0 auto;
 }
 .contenidoFooter{
@@ -41,12 +55,7 @@ margin: 0 auto;
   height: 20%;  
  }
 #headerMain{
-	position:fixed;
 	width: 100%;
-}
-.perfil{
-width: 5%;
-height:5%;	
 }
 .botonesOpciones{
 	font-size:16px;
@@ -55,12 +64,11 @@ height:5%;
 	font-style:normal;
 }
 .contenedor{
-	position:fixed;
+	position:absolute;
 	width:100%;
-	height:67%;
 	text-align: center;
-	top:30%;
-	overflow: auto;
+	top:23%;
+	height:67%;
 }
 
 .listas{
@@ -176,12 +184,12 @@ float: right;
 	overflow:auto;
 }
 #popupPanelLeft {
-    width: 220px;
+    width: 250px;
 	top:15%;
     border: 1px solid #000;
     border-right: none;
     background: rgba(0,0,0,.5);
-    margin: -1px 0;
+    margin: 1px 0;
 }
 #popupPanelLeft .ui-btn {
     margin: 2em 15px;
@@ -193,7 +201,7 @@ float: right;
 	overflow:auto;
 }
 #popupPanelRight {
-    width: 220px;
+    width: 250px;
 	top:15%;
     border: 1px solid #000;
     border-left: none;
@@ -227,6 +235,15 @@ display: inline-block;
   	width: 25px;
   	height: 25px;
   }
+  .imagePerfil{
+	align:middle;
+	width:auto;
+	height:30px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;	
+    padding:1px;
+}
   .linkImg{
   	width: 10px;
   	height: auto;
@@ -254,34 +271,32 @@ left:0%;
 top:0%;
 }
 .contenedor{
-	position:fixed;
+	position:absolute;
 	width:100%;
-	height:1000px;
-	margin: 1px auto;
 	text-align: center;
 	top:20%;
+	height:auto;
 }
 
 .listas{
 min-width:100%;
 max-width: 100%;
 height: auto;
-max-height:33%;
 overflow: auto;
 display: inline-block;
 position:relative;
-float: left;
+float: center;
 }
 
 .links{
 min-width:100%;
 height: auto;
-max-height:43%;
-overflow: scroll;
+overflow: auto;
 display: inline-block;
 position: relative;
 float: center;
 }
+
 
 .list {
 	font-size:8px;
@@ -335,6 +350,7 @@ float: left;
 	height: auto;
 	width: auto;
 	max-width:25%;
+	padding:3px;
 }
 .botonesOpciones{
 	font-size:8px;
@@ -342,6 +358,24 @@ float: left;
 	font-weight:bold;
 	font-style:normal;
 
+}
+#popupPanelRight{
+	font-size:8px;
+	 width: auto;
+	top:15%;
+    border: 1px solid #000;
+    border-right: none;
+    background: rgba(0,0,0,.5);
+    margin: 1px 0;
+}
+#popupPanelLeft{
+	font-size:8px;
+	 width: auto;
+	top:15%;
+    border: 1px solid #000;
+    border-right: none;
+    background: rgba(0,0,0,.5);
+    margin: 1px 0;
 }
 }
 @media screen and (max-width: 800px) {

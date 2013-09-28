@@ -7,7 +7,7 @@ $(document).ready(function() {
 		  value: false
 	});
 	$( "#progressbar" ).hide();
-$.ajax({
+	$.ajax({
 			type : 'POST',
 			url : 'sesionIniciada.php',
 			success : function(response) {
@@ -19,7 +19,7 @@ $.ajax({
 				else {
 					window.location = ("#p_login");
 				}
-}});
+	}});
 
 	$('#b_LogOut').click(function() {
 		$.ajax({
@@ -69,6 +69,17 @@ $.ajax({
 	   });
 	   
 	   function fLogin() {
+	   		
+	   		$.ajax({
+				url : 'profileButton.php',
+				type : 'post',
+				dataType : 'html',
+				cache : false,
+				success : function(html){
+					document.getElementById("b_profile").innerHTML=html;
+				}
+			});
+	   	
 			$.ajax({
 				url : 'lists.php',
 				type : 'post',

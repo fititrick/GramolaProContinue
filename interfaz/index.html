@@ -116,23 +116,22 @@
 		</div>
 
 		<div id="p_main" data-role="page" >
-			<div id="headerMain" data-role="header">
+			<header id="headerMain" data-role="header">
 				<h1>Gramola Project</h1>
 				
 				<img  class="image" alt="Gramola Project" src="./images/Gramola.png"/>
 				<!--<img class="image" alt="Gramola Project" src="./images/mono50.png" data-fullsrc="./images/mono100.png" align="middle">-->
 				
-					<div class="ui-btn-left  botonOpcionesheader" data-role="button">User y foto de user<img class="image" src="./images/Gramola.png" alt="Gramola"/></div>
+					<div class="ui-btn-left  botonOpcionesheader" data-role="button"id="b_profile"></div>
 					<div id="b_LogOut" class="ui-btn-right botonOpcionesheader" data-role="button">Log Out<img class="image" src="./images/logout.png" alt="Log Out" /></div>
-				
 					<div data-type="horizontal" style="width:100%; position: relative; top: 1%;" data-role="header">
-						<a href="#popupPanelRight" class="ui-btn-left botonesOpciones" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button" data-theme="e">OPTIONS FOR LISTS </a>
-						<a href="#popupPanelLeft" class="ui-btn-right botonesOpciones" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button" data-theme="e">OPTIONS FOR LINKS </a>
+					<a href="#popupPanelRight" class="ui-btn-left botonesOpciones" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button" data-theme="e">OPTIONS FOR LISTS </a>
+					<a href="#popupPanelLeft" class="ui-btn-right botonesOpciones" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button" data-theme="e">OPTIONS FOR LINKS </a>
 					</div>
 				
-			</div><!-- /header -->
+			</header><!-- /header -->
 				
-			<div class="contenedor">
+			<article class="contenedor">
 				<div id="d_listContainer"  class="listas">
 				</div>
 				
@@ -151,7 +150,7 @@
 						<tbody  id="Links" style="background-color: #A9E2F3; color:black" ></tbody>
 					</table>
 				</div>
-			</div>
+			</article>
 			<!--<p><a href="#p_links"  data-role="button" data-theme="e" data-icon="back" >Back to previous page</a></p>-->
 			<div data-role="popup" id="popupPanelRight" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
 
@@ -175,22 +174,22 @@
 								<button  id="b_VoteList2" type="submit" title="Vote for this List" data-theme="b" name="2" class="buttonVList">
 									2 bananas for this List
 									<br>
-									<img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos"/>
+									<img src="./images/2Bananas.png" alt="Platanos" />
 								</button>
 								<button  id="b_VoteList3" type="submit" title="Vote for this List" data-theme="b" name="3" class="buttonVList">
 									3 bananas for this List
 									<br>
-									<img src="./images/fotoPlatano32.png" alt="Platanos"/><img src="./images/fotoPlatano32.png" alt="Platanos"/><img src="./images/fotoPlatano32.png" alt="Platanos"/>
+									<img src="./images/3Bananas.png" alt="Platanos"/>
 								</button>
 								<button  id="b_VoteList4" type="submit" title="Vote for this List" data-theme="b" name="4" class="buttonVList">
 									4 bananas for this List
 									<br>
-									<img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos"/>
+									<img src="./images/4Bananas.png" alt="Platanos" />
 								</button>
 								<button  id="b_VoteList5" type="submit" title="Vote for this List" data-theme="b" name="5" class="buttonVList">
 									5 bananas for this List
 									<br>
-									<img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" /><img src="./images/fotoPlatano32.png" alt="Platanos" />
+									<img src="./images/5Bananas.png" alt="Platanos" />
 								</button>
 							</div>
 
@@ -210,16 +209,10 @@
 					</div>
 					<div data-role="collapsible" data-theme="a" data-content-theme="a">
 						<h3>Share</h3>
-
 						<div class="ui-grid-solo">
 							<div id="div_Compartir" class="ui-block-a">
-								<table id="tablaComp">
-									<tr >
-										<td id="b_facebook"><img src="./images/fb.png" alt="facebook" /></td>
-										<td id="b_twitter"><img src="./images/Twitter.png" alt="twitter" /></td>
-									</tr>
-
-								</table>
+										<button id="b_facebook"><img src="./images/fb.png" alt="facebook" /></button>
+										<button id="b_twitter"><img src="./images/Twitter.png" alt="twitter" /></button>
 								<div id="qrButton" class="qrButton" data-theme="a" data-content-theme="a">
 									<div class="ui-grid-solo">
 										<div id="div_genQR" class="ui-block-a">
@@ -261,7 +254,7 @@
 			</div>
 			<div data-role="popup" id="popupPanelLeft" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
 				<div data-role="collapsible-set" data-content-theme="b" >
-					<div data-role="collapsible" data-collapsed="false" data-theme="e" data-content-theme="e" style="font-size: 13">
+					<div data-role="collapsible" data-collapsed="false" data-theme="e" data-content-theme="e">
 						<h3>New Song</h3>
 						<form name="frpanel" id="divNewLink" method="post" >
 							<div data-role="fieldcontain" >
@@ -270,7 +263,7 @@
 							</div>
 
 							<div data-role="fieldcontain" >
-								<label for="select-choice-1" style="font-size: 13" >Select Provider</label>
+								<label for="select-choice-1">Select Provider</label>
 								<select data-theme="b" name="select-choice-1" id="select-choice-1">
 									<option  value="youtube">Youtube</option>
 									<option value="spotify">Spotify</option>
@@ -280,7 +273,7 @@
 							</div>
 
 							<div data-role="fieldcontain">
-								<label for="number-pattern" style="font-size: 13">List Position</label>
+								<label for="number-pattern" >List Position</label>
 								<input type="number" id="number-pattern" pattern="[0-9]*" min="0" name="position"  value="" placeholder="Pattern attribute [0-9]* for a numeric keypad" />
 							</div>
 
@@ -299,7 +292,7 @@
 				</div>
 			</div>
 			
-			<div id="footer" data-role="footer" class="ui-bar" >
+			<footer id="footer" data-role="footer" class="ui-bar" >
 				PLAYER
 				<div class="contenidoFooter">
 					<div id="player" class="playerPlaceholder">
@@ -311,7 +304,7 @@
 						</div>
 	
 					</div>
-			</div>
+			</footer>
 		</div>
 
 		<div data-role="page" id="profile-Page" class="contentDiv">
