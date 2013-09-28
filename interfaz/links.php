@@ -65,14 +65,14 @@ if($_SESSION["autentificado"]=="SI"){
 			 echo '<td class="PosLinkInList">'.$row[1].'</td>';
 			 echo '<td><div class:"votePanel">
 			 		
-			<button  id="banana1" title= "'.$row[2].'" name="1" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="1" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src1.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0" alt="banana" width="22" height="20"></button>
-			<button  id="banana2" title= "'.$row[2].'" name="2" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="2" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src2.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0"  alt="banana" width="22" height="20"></button>
-			<button  id="banana3" title= "'.$row[2].'" name="3" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="3" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src3.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0"  alt="banana" width="22" height="20"></button>
-			<button  id="banana4" title= "'.$row[2].'" name="4" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="4" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src4.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0"  alt="banana" width="22" height="20"></button>
-			<button  id="banana5" title= "'.$row[2].'" name="5" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="5" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src5.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0"  alt="banana" width="22" height="20"></button>
+			<button  id="banana1" title= "'.$row[2].'" name="1" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="1" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src1.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0" alt="banana" width="22" height="20"/></button>
+			<button  id="banana2" title= "'.$row[2].'" name="2" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="2" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src2.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0"  alt="banana" width="22" height="20"/></button>
+			<button  id="banana3" title= "'.$row[2].'" name="3" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="3" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src3.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0"  alt="banana" width="22" height="20"/></button>
+			<button  id="banana4" title= "'.$row[2].'" name="4" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="4" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src4.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0"  alt="banana" width="22" height="20"/></button>
+			<button  id="banana5" title= "'.$row[2].'" name="5" type="submit" class="buttonOfVotes"><img class="'.$boton.'" name="5" title="'.$title.'" onmouseover="colorImg(this)" src="'.$src5.'" onmouseout="normalImg(this)" onClick="pulseImg(this)" border="0"  alt="banana" width="22" height="20"/></button>
 			 			</div>
 			 	   </td> ';
-			 echo '<td><button id="b_BorrarLink"  title= "Delete" name="'.$row[2].'" type="submit" value= "'.$i.'" data-theme="b" class="buttonDelLink"><target="_blank"> <img src="./images/eliminar32.png"></img></button></td></tr>';
+			 echo '<td><button id="b_BorrarLink"  title= "Delete" name="'.$row[2].'" type="submit" value= "'.$i.'" data-theme="b" class="buttonDelLink"><target="_blank"> <img class="basura" src="./images/eliminar32.png" alt"basura"/></button></td></tr>';
 			//aqui habria que meter un nuevo elemento de la tabla que sea la x para borrar con otra classe
 		}
 		//meter en session el numero de links de la lista

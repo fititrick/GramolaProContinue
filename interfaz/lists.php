@@ -32,39 +32,32 @@ if($_SESSION["autentificado"]=="SI"){
 				$lock="";
 			}
 			else{
-				$lock='<img src="./images/cerrado22.png"></img>';
+				$lock='<img class="candado" src="./images/cerrado22.png" alt="platanos"/>';
 			}
 			
 			switch($row2[0]){
 				
 				case 1:
-					$row2[0]='<img src="./images/fotoPlatano32.png"></img>
-								';
+					$row2[0]='<img class="platanosLists" src="./images/fotoPlatano32.png" alt="platanos"/>';
 					break;
 				case 2:
-					$row2[0]='<img src="./images/2Bananas.png"></img>
-								';
+					$row2[0]='<img class="platanosLists" src="./images/2Bananas.png" alt="platanos"/>';
 					break;
 				case 3:
-					$row2[0]='<img src="./images/3Bananas.png"></img>
-								<';
+					$row2[0]='<img class="platanosLists" src="./images/3Bananas.png" alt="platanos"/>';
 					break;
 				case 4:
-					$row2[0]='<img src="./images/4Bananas.png"></img>
-							  ';
+					$row2[0]='<img class="platanosLists" src="./images/4Bananas.png" alt="platanos"/>';
 					break;
 				case 5:
-					$row2[0]='<img src="./images/5Bananas.png"></img>';
-					break;
-				default:
-					$row2[0]='not yet';
-					
+					$row2[0]='<img class="platanosLists" src="./images/5Bananas.png" alt="platanos"/>';
+					break;		
 				
 			}
 	    	
 	    	 //$line = '<div id="list'.$var.'">'.$row[0].', list nº: '.$row[0].'</div>';	
 
-	    	$line = '<button id="Lista'.$row[1].'" name='.$row[1].' title='.$row[0].' class="list" href="#" >'.$row[0].' '.$lock.' <br>Score: <br> '.$row2[0].' </button>';
+	    	$line = '<button id="Lista'.$row[1].'" onclick = "muestraLinks(this)" name='.$row[1].' title='.$row[0].' class="list" >'.$row[0].' '.$lock.' <br>'.$row2[0].' </button>';
 		
 			
 			echo "$line";

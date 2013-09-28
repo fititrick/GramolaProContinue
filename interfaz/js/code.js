@@ -166,19 +166,19 @@ $.ajax({
 					for (var j = 0; j < vector2.length; j++) {
 						
 						if (vector2[j].innerText == 'youtube') {
-							vector2[j].innerHTML = '<image style="width=60px height=60" src="./images/youtube.png">';
+							vector2[j].innerHTML = '<img class="linkImg" src="./images/youtube.png" alt="proveedor"/>';
 							(playlist.getElement(j)).setProvider(PROVIDER.YOUTUBE);
 						}
 						if (vector2[j].innerText == 'goear') {
-							vector2[j].innerHTML = '<image style="width=60px height=60px" src="./images/goear.png">';
+							vector2[j].innerHTML = '<img class="linkImg" src="./images/goear.png" alt="proveedor"/>';
 							playlist.getElement(j).setProvider(PROVIDER.GOEAR);
 						}
 						if (vector2[j].innerText == 'spotify') {
-							vector2[j].innerHTML = '<image style="width=50px height=50px" src="./images/spotify.png">';
+							vector2[j].innerHTML = '<img class="linkImg" src="./images/spotify.png" alt="proveedor"/>';
 							playlist.getElement(j).setProvider("spotify");
 						}
 						if (vector2[j].innerText == 'mp3') {
-							vector2[j].innerHTML = '<image style="width=50px height=40px" src="./images/music.png">';
+							vector2[j].innerHTML = '<img class="linkImg" src="./images/music.png" alt="proveedor"/>';
 							(playlist.getElement(j)).setProvider(PROVIDER.MP3);
 							
 						}
